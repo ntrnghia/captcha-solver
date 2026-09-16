@@ -201,6 +201,16 @@ The API key and the marked selectors stay in `chrome.storage.local` on your mach
 only network calls are to `openrouter.ai`: key validation, the model list, and the chat
 completion that carries the captcha image. Nothing else is sent anywhere.
 
+## Legal note
+
+This is a general-purpose automation tool. Whether you may point it at a given site is
+between you and that site's terms of service - use it on sites you own, test with, or are
+otherwise permitted to automate.
+
+## License
+
+[MIT](LICENSE).
+
 ## Packaging
 
 `test/`, `package.json` and `node_modules/` are development-only; exclude them when zipping for the Chrome Web Store (the extension itself is `manifest.json`, `shared.js`, `background.js`, `content.js` and `popup.*`).
