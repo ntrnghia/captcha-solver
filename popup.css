@@ -1,0 +1,289 @@
+:root {
+  color-scheme: light;
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --busy: #2563eb;
+  --ok: #15803d;
+  --bad: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 14px;
+  font: 13px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.hint {
+  margin: 6px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.mono {
+  margin: 4px 0 0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+}
+
+textarea {
+  font: 12px/1.45 ui-monospace, Consolas, monospace;
+  resize: vertical;
+}
+
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+  border-color: #93c5fd;
+}
+
+.row.tight {
+  margin: 10px 0 4px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.row.between {
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.row.buttons {
+  margin-top: 12px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.icon-btn {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  line-height: 1;
+}
+
+.primary {
+  flex: 1;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  font-weight: 600;
+  color: #fff;
+  background: #1d4ed8;
+}
+
+.primary:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.link {
+  padding: 0;
+  border: 0;
+  font-size: 12px;
+  color: #1d4ed8;
+  text-decoration: underline;
+  background: none;
+}
+
+.ghost {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+}
+
+.run {
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.run img {
+  flex: 0 0 auto;
+  max-width: 130px;
+  max-height: 62px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.runInfo {
+  min-width: 0;
+}
+
+.strong {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  margin-top: 8px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.icon {
+  display: inline-flex;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon[data-tone="busy"] {
+  color: var(--busy);
+}
+
+.icon[data-tone="ok"] {
+  color: var(--ok);
+}
+
+.icon[data-tone="bad"] {
+  color: var(--bad);
+}
+
+.icon[data-tone="muted"] {
+  color: var(--muted);
+}
+
+#statusText {
+  overflow-wrap: anywhere;
+}
+
+fieldset {
+  margin: 12px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#roles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#roles li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 3px 0;
+}
+
+.cmp {
+  flex: 0 0 14px;
+  font-weight: 700;
+}
+
+#roles li[data-set="yes"] .cmp::after {
+  content: "✓";
+  color: var(--ok);
+}
+
+#roles li[data-set="no"] .cmp::after {
+  content: "○";
+  color: var(--muted);
+}
+
+.rl {
+  font-weight: 600;
+}
+
+.rv {
+  max-width: 170px;
+  margin-left: auto;
+  overflow: hidden;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.check input {
+  width: auto;
+}
+
+.msg {
+  min-height: 16px;
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.msg.bad {
+  color: var(--bad);
+}

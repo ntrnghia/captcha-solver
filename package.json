@@ -1,0 +1,12 @@
+{
+  "name": "captcha-solver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome MV3 extension that solves image captchas with OpenRouter vision models",
+  "scripts": {
+    "test": "node test/selftest.js"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}

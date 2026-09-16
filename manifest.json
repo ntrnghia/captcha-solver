@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Captcha Solver (OpenRouter)",
+  "version": "1.0.0",
+  "description": "Solve image captchas with an OpenRouter vision model. Mark the image, the answer field and the submit button once, then it solves by itself.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Captcha Solver"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["shared.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

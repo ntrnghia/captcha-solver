@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Captcha Solver - local test page</title>
+    <style>
+      body { max-width: 520px; margin: 40px auto; font: 15px system-ui, sans-serif; text-align: center; }
+      img { padding: 6px; border: 1px solid #ccc; background: #fff; }
+      input[type="text"] { width: 160px; padding: 6px 8px; font-size: 16px; text-align: center; }
+      input[type="submit"] { padding: 7px 14px; }
+      #result { margin-top: 16px; font-weight: 600; color: #16a34a; }
+    </style>
+  </head>
+  <body>
+    <h1>Fake protected folder</h1>
+    <p>Same ids as the real page. Mark the three elements, then press “Solve now”.</p>
+
+    <img id="CaptchaImage" src="captcha.png" alt="captcha" width="190" height="80" /><br /><br />
+    <input id="CaptchaInputText" name="CaptchaInputText" type="text" autocomplete="off" /><br /><br />
+    <input class="btn" type="submit" value="Continue to folder" />
+    <p id="result"></p>
+
+    <script>
+      document.querySelector('input[type="submit"]').addEventListener('click', event => {
+        event.preventDefault();
+        const answer = document.getElementById('CaptchaInputText').value || '(empty)';
+        document.getElementById('result').textContent = 'Submitted answer: ' + answer;
+      });
+    </script>
+  </body>
+</html>

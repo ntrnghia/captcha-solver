@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Captcha Solver</h1>
+
+    <section id="keyView">
+      <p class="hint">
+        Paste an OpenRouter API key. It is stored in this browser and only ever sent to openrouter.ai.
+      </p>
+      <form id="keyForm">
+        <label for="apiKey">OPENROUTER_API_KEY</label>
+        <input id="apiKey" type="password" placeholder="sk-or-v1-..." autocomplete="off" spellcheck="false" />
+      </form>
+      <p id="keyMsg" class="msg" role="alert"></p>
+    </section>
+
+    <section id="mainView" hidden>
+      <label for="model">Vision model (image in, text out)</label>
+      <div class="row">
+        <select id="model"></select>
+        <button id="refresh" class="icon-btn" type="button" title="Reload the model list">⟳</button>
+      </div>
+      <p id="modelId" class="mono"></p>
+
+      <div class="row between tight">
+        <label for="prompt">Prompt</label>
+        <button id="resetPrompt" class="link" type="button" hidden>reset to default</button>
+      </div>
+      <textarea id="prompt" rows="3" spellcheck="false"></textarea>
+      <p class="hint">Sent with every captcha image. Edit it to steer the model.</p>
+
+      <div class="status" role="status" aria-live="polite">
+        <span id="statusIcon" class="icon" data-tone="muted"></span>
+        <span id="statusText">Idle</span>
+      </div>
+
+      <fieldset id="runView" hidden>
+        <legend>Last request</legend>
+        <div class="row run">
+          <img id="runImage" alt="captured captcha" hidden />
+          <div class="runInfo">
+            <p id="runAnswer" class="mono strong"></p>
+            <p id="runMeta" class="hint"></p>
+          </div>
+        </div>
+        <button id="copyRun" class="link" type="button">copy details</button>
+      </fieldset>
+
+      <div class="row between">
+        <span>Total cost</span>
+        <span><strong id="totalCost">$0</strong> <button id="resetCost" class="link" type="button">reset</button></span>
+      </div>
+
+      <fieldset>
+        <legend>Elements on <span id="siteOrigin" class="mono">this page</span></legend>
+        <ul id="roles">
+          <li data-role="source"><span class="cmp"></span><span class="rl">Captcha image</span><span class="rv">not set</span></li>
+          <li data-role="input"><span class="cmp"></span><span class="rl">Answer input</span><span class="rv">not set</span></li>
+          <li data-role="submit"><span class="cmp"></span><span class="rl">Continue button</span><span class="rv">not set</span></li>
+        </ul>
+        <p class="hint">
+          Right-click the captcha image → <em>Mark as Captcha Source</em>; the text box → <em>Put Captcha
+          Answer Here</em>; the submit button → <em>Solve Captcha</em>.
+        </p>
+      </fieldset>
+
+      <label class="check"><input id="autoSolve" type="checkbox" /> Auto-solve when a configured page loads</label>
+
+      <div class="row buttons">
+        <button id="solveNow" class="primary" type="button">Solve now</button>
+        <button id="testImage" class="ghost" type="button" title="Read a local image file with the selected model">Test image</button>
+        <input id="file" type="file" accept="image/*" hidden />
+      </div>
+
+      <div class="row between footer">
+        <span id="attempts" class="hint"></span>
+        <span class="nowrap">
+          <button id="resetAttempts" class="link" type="button" hidden>reset attempts</button>
+          <button id="changeKey" class="link" type="button">change key</button>
+        </span>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
